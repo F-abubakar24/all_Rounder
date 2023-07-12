@@ -1,17 +1,17 @@
-.shopRaper {
-  display: flex;
-  justify-content: center; /* Center items horizontally */
-  width: 1432px;
+.shopWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.shop_container {
+    width: 1432px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
 }
 
 .product_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
-
-.shop_container {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
 }
 
 .cart_container {

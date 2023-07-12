@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Shop.css";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
+import { addToBrowserDB } from "../Utlities/Local_Storage";
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -16,9 +17,8 @@ const Shop = () => {
     const handleAddToCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
+        addToBrowserDB(product.id)
     };
-
-    // console.log(cart);
 
     return (
         <div className="shopWrapper">
