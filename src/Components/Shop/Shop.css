@@ -1,0 +1,20 @@
+.shopRaper {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  width: 1432px;
+}
+
+.product_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.shop_container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.cart_container {
+    text-align: center;
+    background-color: antiquewhite;
+}

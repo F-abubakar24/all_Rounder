@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'SF Pro';
+  src: url('./Fonts/SF-Pro/SF-Pro.ttf') format('opentype');
+  /* Add more font variations if available */
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: SF Pro;
+}
