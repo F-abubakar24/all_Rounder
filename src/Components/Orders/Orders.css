@@ -1,0 +1,45 @@
+.review_item_container {
+    margin-top: 30px;
+    box-shadow: 0px 10px 20px 6px rgba(0, 0, 0, 0.1);
+}
+.review_cart {
+    border: 1px solid #ddd;
+    box-shadow: 0px 10px 20px 6px rgba(0, 0, 0, 0.1);
+    padding: 50px 50px;
+}
+
+/* This is for review Items page design */
+.review_items{
+    border: 2px solid #f90;
+    margin: 30px 0px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+.review_items img{
+    width: 150px;
+    border-radius: 6px;
+}
+.review-details{
+    margin: 0px 30px;
+    flex-grow: 1;
+}
+.review-details .name{
+    font-size: 20px;
+}
+.Org_text{
+    color: #f90;
+    font-weight: 900;
+}
+.btn_delete{
+    height: 55px;
+    width: 55px;
+    border-radius: 40%;
+    background-color: rgba(235, 87, 87, 0.3);
+    cursor: pointer;
+}
+.delete_icon{
+    color: #EB5757;
+    font-size: 25px;
+}

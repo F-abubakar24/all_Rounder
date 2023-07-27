@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Shop.css";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
-import { addToBrowserDB } from "../Utlities/Local_Storage";
+import { addToBrowserDB, getStoredCart } from "../Utilities/Local_Storage";
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -14,10 +14,39 @@ const Shop = () => {
             .then((data) => setProducts(data));
     }, []);
 
-    const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
+    useEffect(() => {
+        const storedCart = getStoredCart();
+        const savedCart = [];
+        // step 1: get id of the addedProduct
+        for (const id in storedCart) {
+            // step 2: get product from products state by using id
+            const addedProduct = products.find(product => product.id === id)
+            
+            if (addedProduct) {
+                // step 3: add quantity
+                addedProduct.quantity = storedCart[id];
+                // step 4: add the added product to the saved cart
+                savedCart.push(addedProduct);
+            }
+        }
+        // step 5: set the cart
+        setCart(savedCart);
+
+    }, [products])
+
+    const handleAddToCart = (selectedProduct) => {
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id)
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        } else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id)
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists]; 
+        }
         setCart(newCart);
-        addToBrowserDB(product.id)
+        addToBrowserDB(selectedProduct.id);
     };
 
     return (
